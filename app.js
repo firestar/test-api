@@ -44,7 +44,7 @@ app.get('/create/:session/:file', function (req, res) {
 
 app.get('/relay/get_file', function(req, res){
   var start = new Date().getTime();
-  request('http://localhost:3000/create/231231231231/21312d1fwfsf12', function (error, response, body) {
+  request('http://testapi:3000/create/231231231231/21312d1fwfsf12', function (error, response, body) {
     var total = new Date().getTime() - start;
     var responseObject = JSON.parse(body);
     console.log('error:', error); // Print the error if one occurred

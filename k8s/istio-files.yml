@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: test-api-svc-entry
+spec:
+  hosts:
+  - "testapi.localcluster"
+  ports:
+  - number: 80
+    name: http
+    protocol: HTTP
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: testapi
+spec:
+  hosts:
+  - testapi.localcluster
+  http:
+  - route:
+    - destination:
+        host: testapi
+        subset: v1
