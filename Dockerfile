@@ -1,7 +1,7 @@
 FROM node:stretch
 
-ADD . /srv/
+ADD . /
 
-RUN cd /srv/;npm install
+RUN npm install
 
-ENTRYPOINT ["cd /srv/;node bin/www"]
+ENTRYPOINT ["node", "bin/www"]
